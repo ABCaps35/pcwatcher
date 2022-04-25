@@ -1,10 +1,9 @@
 package com.abcapelli.pcwatcher.controllers;
 
-import java.io.IOException;
-import java.lang.management.ManagementFactory;
 import java.util.List;
 
 import org.json.simple.JSONObject;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +16,6 @@ import com.profesorfalken.jsensors.model.components.Mobo;
 import com.profesorfalken.jsensors.model.sensors.Fan;
 import com.profesorfalken.jsensors.model.sensors.Load;
 import com.profesorfalken.jsensors.model.sensors.Temperature;
-import com.sun.management.OperatingSystemMXBean;
 
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
@@ -30,12 +28,14 @@ public class SpecFetcher {
 	SystemInfo si;
 	HardwareAbstractionLayer hal;
 	Sensors sens;
+	boolean canRun;
 	
 	public SpecFetcher(){
 		components = JSensors.get.components();
 		si = new SystemInfo();
 		hal = si.getHardware();
 		sens = hal.getSensors();
+		canRun = true;
 	}
 	
 	@RequestMapping("/api/index")
@@ -152,10 +152,15 @@ public class SpecFetcher {
 		System.out.println(sens.getFanSpeeds());
 	}
 	
+	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/api/fetch")
 	public JSONObject getFullData () {
 		JSONObject out = new JSONObject();
+		if(canRun=false) {
+			return null;
+		}
 		
+		canRun = false;
 		//This step is really slow, like 3 seconds slow. If possible, find alternative to substitute in
 		//Or just take front end over to C#, where there's native libraries for this stuff...
 		components = JSensors.get.components();
@@ -195,13 +200,12 @@ public class SpecFetcher {
 		            	}
 		            }
 		            for (final Temperature temp : gpu.sensors.temperatures) {
-		                System.out.println(temp.name + ": " + temp.value + " C");
 		                out.put("gpu_temp", temp.value);
 		            }
 	            }
 	        }
 	    }
-		
+		canRun = true;
 		return out;
 	}
 }
