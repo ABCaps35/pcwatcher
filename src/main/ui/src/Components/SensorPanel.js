@@ -188,32 +188,32 @@ const SensorPanel = (props) => {
             ): (
                 <Grid container spacing={3} p={3}>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>CPU Load: {data.cpu_load}%
+                        <Card sx={{p: 2}}>CPU Load: <br/>{data.cpu_load}%
                             <Doughnut options={donut_options} data={cpu_load_data}/>
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>GPU Load: {data.gpu_load}%
+                        <Card sx={{p: 2}}>GPU Load: <br/>{data.gpu_load}%
                             <Doughnut options={donut_options} data={gpu_load_data}/>
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>CPU Temp: {data.cpu_temp} °C
+                        <Card sx={{p: 2}}>CPU Temp: <br/>{data.cpu_temp} °C
                             <Doughnut options={donut_options} data={cpu_temp_data}/>
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>GPU Temp: {data.gpu_temp} °C
+                        <Card sx={{p: 2}}>GPU Temp: <br/>{data.gpu_temp} °C
                             <Doughnut options={donut_options} data={gpu_temp_data}/>
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>DRAM Load: {data.dram_load}%
+                        <Card sx={{p: 2}}>DRAM Load: <br/>{data.dram_load}%
                             <Bar options={bar_options} data={dram_data}/>
                         </Card>
                     </Grid>
                     <Grid item xs={6} md={4}>
-                        <Card sx={{p: 2}}>VRAM Load: {data.vram_load}%
+                        <Card sx={{p: 2}}>VRAM Load: <br/>{data.vram_load}%
                             <Bar options={bar_options} data={vram_data}/>
                         </Card>
                     </Grid>

@@ -36,8 +36,8 @@ const Main = (props) => {
             <Box sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
                 {loaded && <SensorPanel data={data} orientation="horizontal" />}
             </Box>
-            <Box sx={{mx: 'auto'}}>
-                <Button variant="contained" onClick={refresh}>
+            <Box>
+                <Button sx={{mx: 'auto', mb: 2}} fullWidth variant="contained" color="secondary" onClick={refresh}>
                     Fetch Data
                 </Button>
             </Box>
