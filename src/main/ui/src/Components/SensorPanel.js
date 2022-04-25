@@ -79,8 +79,8 @@ const SensorPanel = (props) => {
             {
                 label: 'CPU Load',
                 data: [data.cpu_load,100-data.cpu_load],
-                borderColor: ['rgb(0,255,0)','rgb(0,0,0)'],
-                backgroundColor: ['rgb(150,255,150)','rgb(0,0,0)'],
+                borderColor: ['rgb(0,255,0)','rgb(0,255,0)'],
+                backgroundColor: ['rgb(150,255,150)','rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -92,8 +92,8 @@ const SensorPanel = (props) => {
             {
                 label: 'GPU Load',
                 data: [data.gpu_load,100-data.gpu_load],
-                borderColor: ['rgb(255,0,0)','rgb(0,0,0)'],
-                backgroundColor: ['rgb(255,150,150','rgb(0,0,0)'],
+                borderColor: ['rgb(255,0,0)','rgb(255,0,0)'],
+                backgroundColor: ['rgb(255,150,150)','rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -106,8 +106,8 @@ const SensorPanel = (props) => {
             {
                 label: 'CPU Temp',
                 data: [data.cpu_temp,95-data.cpu_temp],
-                borderColor: ['rgb(0,255,0)','rgb(0,0,0)'],
-                backgroundColor: ['rgb(150,255,150)','rgb(0,0,0)'],
+                borderColor: ['rgb(0,255,0)','rgb(0,255,0)'],
+                backgroundColor: ['rgb(150,255,150)','rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -119,8 +119,8 @@ const SensorPanel = (props) => {
             {
                 label: 'GPU Temp',
                 data: [data.gpu_temp,90-data.gpu_temp],
-                borderColor: ['rgb(255,0,0)','rgb(0,0,0)'],
-                backgroundColor: ['rgb(255,150,150','rgb(0,0,0)'],
+                borderColor: ['rgb(255,0,0)','rgb(255,0,0)'],
+                backgroundColor: ['rgb(255,150,150','rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
