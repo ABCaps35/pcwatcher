@@ -187,12 +187,12 @@ const SensorPanel = (props) => {
                 </Grid>
             ): (
                 <Grid container spacing={3} p={3}>
-                    <Grid item xs={6} md={4} style={{display: 'flex'}}>
+                    <Grid item xs={6} md={4}>
                         <Card sx={{p: 2}}>CPU Load: {data.cpu_load}%
                             <Doughnut options={donut_options} data={cpu_load_data}/>
                         </Card>
                     </Grid>
-                    <Grid item xs={6} md={4} style={{display: 'flex'}}>
+                    <Grid item xs={6} md={4}>
                         <Card sx={{p: 2}}>GPU Load: {data.gpu_load}%
                             <Doughnut options={donut_options} data={gpu_load_data}/>
                         </Card>
