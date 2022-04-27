@@ -11,13 +11,11 @@ const Main = (props) => {
     const [reload, setReload] = useState(false);
 
     useEffect(() => {
-        console.log('effect');
         axios.get('http://localhost:8080/api/fetch/')
         .then(response=>{
             setData(response.data);
             setLoaded(true);
             setReload(false);
-            console.log(response.data);
         })
         .catch(err=>console.error(err));
     },[reload])
@@ -42,13 +40,13 @@ const Main = (props) => {
             <Box sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}>
                 {loaded && <SensorPanel data={data} orientation="horizontal" settings={settings} />}
             </Box>
-            <Box>
-                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="secondary" onClick={refresh}>
+            <Box sx={{mt: 2}}>
+                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="info" onClick={refresh}>
                     Fetch Data
                 </Button>
             </Box>
             <Box alignItems="center" sx={{mx: 'auto'}}>
-                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="secondary" onClick={goToSettings}>
+                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="primary" onClick={goToSettings}>
                     Settings
                 </Button>
             </Box>

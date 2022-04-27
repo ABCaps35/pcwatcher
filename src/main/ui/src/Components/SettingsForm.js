@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Card, Typography, Button } from '@mui/material';
-import {ColorPicker} from 'mui-color';
-import "../index.css";
+import { Box, Grid, Card, CardContent, Typography, Button, Divider } from '@mui/material';
+import "../form.css";
 
 const COLOR_REGEX = /^#([0-9a-f]{6})$/
 
@@ -24,14 +23,15 @@ const SettingsForm = (props) => {
     const [gpuColorError, setGpuColorError] = useState('');
 
     const changeHandler = (e) => {
+        console.log(e.target);
         switch(e.target.name){
             case 'cpuColor':
                 setCpuColor(e.target.value);
-                setCpuColorError(COLOR_REGEX.matches(e.target.value) ? '' : 'Invalid Color Regex');
+                setCpuColorError(e.target.value.match(COLOR_REGEX) ? '' : 'Invalid Color Regex');
                 break;
             case 'gpuColor':
                 setGpuColor(e.target.value);
-                setGpuColorError(COLOR_REGEX.matches(e.target.value) ? '' : 'Invalid Color Regex');
+                setGpuColorError(e.target.value.match(COLOR_REGEX) ? '' : 'Invalid Color Regex');
                 break;
             default:
                 break;
@@ -64,22 +64,32 @@ const SettingsForm = (props) => {
             <Box justifyContent="center">
                 <Card sx={{m:3, p: 2, height: '100%'}}>
                     <Typography variant="h4" align="center" sx={{mx: "auto"}}>Settings</Typography>
-                    <Card>
-                        <label htmlFor="cpuColor">CPU Color: </label>
-                        <input className="color-picker" name="cpuColor" value={cpuColor} type="color" onChange={changeHandler} />
-                        <p>{cpuColor}</p>
-                    </Card>
-                    <Card>
-                        <label htmlFor="gpuColor">GPU Color: </label>
-                        <input name="gpuColor" value={gpuColor} type="color" onChange={changeHandler} />
-                        <p>{gpuColor}</p>
-                    </Card>
-                    <ColorPicker value={cpuColor} onChange={changeHandler} />
-                    <ColorPicker value={gpuColor} onChange={changeHandler} />
+                    <Divider light sx={{mt: 1, mb: 3}}/>
+                    <CardContent component="div" sx={{py: 1, border: 1, borderRadius: 3, borderColor: 'text.disabled'}}>
+                        <Grid container justifyContent="center" alignItems="center">
+                            <Grid item sx={{mr: 3}}>
+                                <label htmlFor="cpuColor">CPU Color: </label>
+                            </Grid>
+                            <Grid item sx={{mt: 1}}>
+                                <input className="color-picker" name="cpuColor" value={cpuColor} type="color" onChange={changeHandler} />
+                            </Grid>
+                        </Grid>
+                    </CardContent>
+                    <CardContent component="div" sx={{py: 1, my: 2, border: 1, borderRadius: 3, borderColor: 'text.disabled'}}>
+                        <Grid container justifyContent="center" alignItems="center">
+                            <Grid item sx={{mr: 3}}>
+                                <label htmlFor="gpuColor">GPU Color: </label>
+                            </Grid>
+                            <Grid item sx={{mt: 1}}>
+                                <input className="color-picker" name="gpuColor" value={gpuColor} type="color" onChange={changeHandler} />
+                            </Grid>
+                        </Grid>
+                    </CardContent>
+                    <span></span>
                 </Card>
             </Box>
             <Box>
-                <Button sx={{width: "90%", mx: '5%', my: 2}} variant="contained" color="secondary" type="submit">Submit</Button>
+                <Button sx={{width: "90%", mx: '5%', my: 2}} variant="contained" color="info" type="submit">Submit</Button>
             </Box>
         </form>
     )

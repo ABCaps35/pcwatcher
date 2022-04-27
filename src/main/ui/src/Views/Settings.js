@@ -19,7 +19,7 @@ const Settings = (props) => {
         <div>
             <SettingsForm init={settings} submitFunc={save}/>
             <Box alignItems="center" sx={{mx: 'auto'}}>
-                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="secondary" onClick={goBack}>
+                <Button sx={{mx: '5%', mb: 2, width: '90%'}} variant="contained" color="primary" onClick={goBack}>
                     Go Back
                 </Button>
             </Box>
