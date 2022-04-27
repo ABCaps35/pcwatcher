@@ -1,5 +1,4 @@
-import { Grid, Box, Paper, Card } from "@mui/material";
-import { experimentalStyled as styled } from '@mui/material/styles';
+import { Grid, Box, Card } from "@mui/material";
 import { Bar, Doughnut } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -13,16 +12,11 @@ import {
   } from 'chart.js';
 import React from "react";
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
-
 const SensorPanel = (props) => {
-    const { data, orientation } = props;
+    const { data, orientation, settings } = props;
+
+    const cpuColStr = `${settings.cpuColor[0]},${settings.cpuColor[1]},${settings.cpuColor[2]}`;
+    const gpuColStr = `${settings.gpuColor[0]},${settings.gpuColor[1]},${settings.gpuColor[2]}`;
     
     const maxes = {
         "dram_load": 100,
@@ -78,9 +72,9 @@ const SensorPanel = (props) => {
         datasets: [
             {
                 label: 'CPU Load',
-                data: [data.cpu_load,100-data.cpu_load],
-                borderColor: ['rgb(0,255,0)','rgb(0,255,0)'],
-                backgroundColor: ['rgb(150,255,150)','rgba(0,0,0,0.3)'],
+                data: [data.cpu_load,maxes.cpu_load-data.cpu_load],
+                borderColor: [`rgba(${cpuColStr},1)`,`rgba(${cpuColStr},1)`],
+                backgroundColor: [`rgba(${cpuColStr},0.5)`,'rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -91,9 +85,9 @@ const SensorPanel = (props) => {
         datasets: [
             {
                 label: 'GPU Load',
-                data: [data.gpu_load,100-data.gpu_load],
-                borderColor: ['rgb(255,0,0)','rgb(255,0,0)'],
-                backgroundColor: ['rgb(255,150,150)','rgba(0,0,0,0.3)'],
+                data: [data.gpu_load,maxes.gpu_load-data.gpu_load],
+                borderColor: [`rgba(${gpuColStr},1)`,`rgba(${gpuColStr},1)`],
+                backgroundColor: [`rgba(${gpuColStr},0.5)`,'rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -105,9 +99,9 @@ const SensorPanel = (props) => {
         datasets: [
             {
                 label: 'CPU Temp',
-                data: [data.cpu_temp,95-data.cpu_temp],
-                borderColor: ['rgb(0,255,0)','rgb(0,255,0)'],
-                backgroundColor: ['rgb(150,255,150)','rgba(0,0,0,0.3)'],
+                data: [data.cpu_temp, maxes.cpu_temp-data.cpu_temp],
+                borderColor: [`rgba(${cpuColStr},1)`,`rgba(${cpuColStr},1)`],
+                backgroundColor: [`rgba(${cpuColStr},0.5)`,'rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -118,9 +112,9 @@ const SensorPanel = (props) => {
         datasets: [
             {
                 label: 'GPU Temp',
-                data: [data.gpu_temp,90-data.gpu_temp],
-                borderColor: ['rgb(255,0,0)','rgb(255,0,0)'],
-                backgroundColor: ['rgb(255,150,150','rgba(0,0,0,0.3)'],
+                data: [data.gpu_temp, maxes.gpu_temp-data.gpu_temp],
+                borderColor: [`rgba(${gpuColStr},1)`,`rgba(${gpuColStr},1)`],
+                backgroundColor: [`rgba(${gpuColStr},0.5)`,'rgba(0,0,0,0.3)'],
                 circumference: 300,
                 rotation: 210
             }
@@ -133,8 +127,8 @@ const SensorPanel = (props) => {
             {
                 label: 'DRAM',
                 data: [data.dram_load],
-                borderColor: 'rgb(0,255,0)',
-                backgroundColor: 'rgb(150,255,150)'
+                borderColor: `rgba(${cpuColStr},1)`,
+                backgroundColor: `rgba(${cpuColStr},0.5)`
             }
         ]
     };
@@ -144,8 +138,8 @@ const SensorPanel = (props) => {
             {
                 label: 'VRAM',
                 data: [data.vram_load],
-                borderColor: 'rgb(255,0,0)',
-                backgroundColor: 'rgb(255,150,150)'
+                borderColor: `rgba(${gpuColStr},1)`,
+                backgroundColor: `rgba(${gpuColStr},0.5)`
             },
         ],
     };
