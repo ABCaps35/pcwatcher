@@ -16,11 +16,20 @@ To install the project currently, you can do one of the following:
 
 ## Execution
 Currently the .war file in the src/target folder and the React app in the src/main/ui folder must be run separately, but a one-step execution method is in the works.
-To run the application:
+
+To run the application fully on one computer:
 1. Install the package to your desired location
 2. Open a Terminal window at your project and navigate to src/target
 3. run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` to start Java back-end
 4. In another Terminal window, navigate to src/main/ui
+5. run `npm run start` to get React application running
+
+To run the application between two separate machines:
+1. Install the package to your desired location on the machine you wish to monitor
+2. Open a Terminal window at your project and navigate to src/target
+3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` to start Java back-end
+2. Copy the src/main/ui folder to the machine on which you want to run your React application
+4. In a Terminal window on this second machine, navigate to the src/main/ui folder
 5. run `npm run start` to get React application running
 
 Note: in current state, a MySQL schema named "pcwatcher_schema" must be running. The schema name, along with the user name and password, can be changed in src/main/resources/application.properties. This will be removed later. 
