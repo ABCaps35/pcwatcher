@@ -6,7 +6,7 @@
 *NOTE: image out of date, needs to be replaced*
 
 ## Function
-Utilizes React and Java to create an elegant application to monitor the load, temperature, and memory usage of a PC's CPU and GPU
+Utilizes React and Java to create an elegant application to monitor the load, temperature, and memory usage of a PC's CPU and GPU. Can either be run entirely on the PC you wish to monitor, or the Java portion can be run on the PC, and the React portion can be run on a server within the same network.
 
 ## Installation
 Currently the project folder must be downloaded in its entirety. However, work is being done on wrapping the full project as one application for simple installation.
