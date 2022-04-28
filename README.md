@@ -32,8 +32,6 @@ To run the application between two separate machines:
 4. In a Terminal window on this second machine, navigate to the src/main/ui folder
 5. run `npm run start` to get React application running
 
-Note: in current state, a MySQL schema named "pcwatcher_schema" must be running. The schema name, along with the user name and password, can be changed in src/main/resources/application.properties. This will be removed later. 
-
 ## Tools Used
 ### Main Technologies
 - React.js
@@ -50,7 +48,6 @@ Open Hardware Monitor (https://openhardwaremonitor.org/) should be running concu
 
 ## Future Plans
 The following items are to be worked on in the future:
-- Remove unnecessary MySQL dependency from Spring Boot (this was left in just for development and testing of main app, and will be removed once refinement has begun)
 - One-step installation 
 - One-step execution (possibly including a .jar file or Electron wrapping)
 - Adaptation for external server monitoring
