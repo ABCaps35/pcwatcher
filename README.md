@@ -1,7 +1,7 @@
 # PC Watcher Application
 
 ## Preview:
-![Desktop Application Preview](preview-desktop.png) ![Mobile Application Preview](preview-mobile.png)
+![Desktop Application Preview](img/preview-desktop.png) ![Mobile Application Preview](img/preview-mobile.png)
 
 *NOTE: image out of date, needs to be replaced*
 
@@ -15,19 +15,19 @@ To install the project currently, you can do one of the following:
 - Navigating to your desired location in Terminal and using `git clone https://github.com/ABCaps35/pcwatcher.git`
 
 ## Execution
-Currently the .war file in the src/target folder and the React app in the src/main/ui folder must be run separately, but a one-step execution method is in the works.
+Currently the .war file in the project folder and the React app in the src/main/ui folder must be run separately, but a one-step execution method is in the works.
 
 To run the application fully on one computer:
 1. Install the package to your desired location
-2. Open a Terminal window at your project and navigate to src/target
-3. run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` to start Java back-end
+2. Locate the file pc-watcher-0.0.1-SNAPSHOT.war and move it to your desired location
+3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` at your desired location to start Java back-end
 4. In another Terminal window, navigate to src/main/ui
 5. run `npm run start` to get React application running
 
 To run the application between two separate machines:
 1. Install the package to your desired location on the machine you wish to monitor
-2. Open a Terminal window at your project and navigate to src/target
-3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` to start Java back-end
+2. Locate the file pc-watcher-0.0.1-SNAPSHOT.war and move it to your desired location
+3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` at your desired location to start Java back-end
 2. Copy the src/main/ui folder to the machine on which you want to run your React application
 4. In a Terminal window on this second machine, navigate to the src/main/ui folder
 5. run `npm run start` to get React application running
