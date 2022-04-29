@@ -9,28 +9,33 @@
 Utilizes React and Java to create an elegant application to monitor the load, temperature, and memory usage of a PC's CPU and GPU. Can either be run entirely on the PC you wish to monitor, or the Java portion can be run on the PC, and the React portion can be run on a server within the same network.
 
 ## Installation
-Currently the project folder must be downloaded in its entirety. However, work is being done on wrapping the full project as one application for simple installation.
-To install the project currently, you can do one of the following: 
+You can install either only the executables or the entire project, depending on whether your intended use is to simply run the program or to utilize it for adaptation as a remote monitoring server.
+
+To download only the executables, you can: 
+- Download the "PC Watcher" folder as a ZIP and unpack it to your desired location
+
+To download the full project, you can do one of the following: 
 - Download the ZIP file and extracted into your desired location
 - Navigating to your desired location in Terminal and using `git clone https://github.com/ABCaps35/pcwatcher.git`
 
 ## Execution
-Currently the .war file in the project folder and the React app in the src/main/ui folder must be run separately, but a one-step execution method is in the works.
+The files in the "PC Watcher" folder are designed for one-step execution of the React front-end and Java back-end separately. 
 
-To run the application fully on one computer:
-1. Install the package to your desired location
-2. Locate the file pc-watcher-0.0.1-SNAPSHOT.war and move it to your desired location
-3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` at your desired location to start Java back-end
-4. In another Terminal window, navigate to src/main/ui
-5. run `npm run start` to get React application running
+To run the application fully on one computer (for local use):
+1. Navigate to the "PC Watcher" folder if you haven't already.
+2. Open up a Terminal window at the "PC Watcher" folder and run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` to start the Java backend.
+3. Run "pcwatcher Setup.exe" to install and launch the pcwatcher application.
 
-To run the application between two separate machines:
+To run the application between two separate machines (best for adapting to remote/server use):
 1. Install the package to your desired location on the machine you wish to monitor
-2. Locate the file pc-watcher-0.0.1-SNAPSHOT.war and move it to your desired location
-3. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` at your desired location to start Java back-end
-2. Copy the src/main/ui folder to the machine on which you want to run your React application
-4. In a Terminal window on this second machine, navigate to the src/main/ui folder
-5. run `npm run start` to get React application running
+2. Locate the "PC Watcher" folder within the package
+3. Locate the file pc-watcher-0.0.1-SNAPSHOT.war and move it to your desired location
+4. Run `java -jar pc-watcher-0.0.1-SNAPSHOT.war` at your desired location to start Java back-end
+5. Copy the "pcwatcher " to the machine on which you want to run your React application
+6. In a Terminal window on this second machine, navigate to the src/main/ui folder
+7. run `npm run start` to get React application running
+
+Note: After running the "pcwatcher Setup.exe", PCWatcher will be installed on your device, and you can launch it at any time from the Start menu, but will not receive data without the Java executable also running.
 
 ## Tools Used
 ### Main Technologies
@@ -48,7 +53,6 @@ Open Hardware Monitor (https://openhardwaremonitor.org/) should be running concu
 
 ## Future Plans
 The following items are to be worked on in the future:
-- One-step installation 
-- One-step execution (possibly including a .jar file or Electron wrapping)
+- Linux, Mac builds
 - Adaptation for external server monitoring
 - Potential migration to C# backend for faster, simpler Windows architecture
